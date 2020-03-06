@@ -73,8 +73,6 @@ def parse_raw_weather_data(raw):
     for record in data_raw:
         records.append(record.strip('# ').replace(' ', ''))
 
-    records.insert(0, header)
-
     data = pd.read_csv(StringIO('\n'.join(records)), names=header.split(','))
 
     return disclaimer, stations, variables, data
